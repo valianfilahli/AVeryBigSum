@@ -26,7 +26,7 @@ class App extends Component {
 		if(i > 0 && i < 11){
 			for(j = 0; j < i; j++){
 			var k = j + 1
-				document.getElementById("field").innerHTML += "<input class='col-md-6 form-control' type='number' id='var"+k+"' value='{this.state.value"+k+"}' onChange={this.handleChange} min='1' max='10000000000'/>"
+				document.getElementById("field").innerHTML += "<input class='App-input col-md-12 form-control' type='number' id='var"+k+"' value='{this.state.value"+k+"}' onChange={this.handleChange} min='1' max='10000000000'/>"
 			}
 			document.getElementById("field").innerHTML += "<input type='hidden' id='totalInput' value='"+i+"'>"
 			$('#inputModal').modal('show');
@@ -56,7 +56,8 @@ class App extends Component {
 	
 	render() {
 		return (
-			<div>
+		<body>
+			<div className="App-body">
 				<header className="App-header">
 					<a href="https://reactjs.org/"><img src={logo} className="App-logo" alt="logo"/></a>
 					<h1 className="App-title text-center">Welcome to React</h1>
@@ -64,24 +65,18 @@ class App extends Component {
 				<div class="col-md-10 col-md-offset-2">
 				</div>
 				<div id="demo">
-					<form class="container form-group border pb-4 pt-3" onSubmit={this.handleSubmit}>
+					<form class="container form-group pb-4 pt-3" onSubmit={this.handleSubmit}>
 						<div class="row">
 							<div class="col-sm-4">
 							</div>
-							<label class="control-label">The First Input :</label>
+							<label className="control-label Sentence">The First Input :</label>
 						</div>
 						<div class="row">	
 							<div class="col-sm-4"></div>
 							<input class="col-md-3 form-control" type="text" placeholder="input must in range 1-10" value={this.state.value} onChange={this.handleChange} />
-							<button type="submit" value="Submit" data-toggle="modal" class="btn btn-info col-md-1">Submit</button>
+							<button type="submit" value="Submit" data-toggle="modal" className="App-button btn btn-info col-md-1">Submit</button>
 						</div>
 					</form>
-					<div class="row text-center">
-						<p class="col-md-12">Copyright©2018.</p>
-					</div>
-					<div class="row text-center">
-						<a class="col-md-12" href="https://github.com/valianfilahli">Valian Fil Ahli</a>
-					</div>
 				</div>
 				<div class="modal fade" id="inputModal" role="dialog">
 					<div class="modal-dialog">
@@ -94,7 +89,7 @@ class App extends Component {
 								<form class="container form-group" onSubmit={this.submitSum}>
 									<div id="field">
 									</div>
-									<button type="submit" value="Submit" class="btn btn-info">Submit</button>
+									<button type="submit" value="Submit" className="App-input btn btn-info">Submit</button>
 								</form>
 							</div>
 							<div class="modal-footer">
@@ -137,6 +132,15 @@ class App extends Component {
 					</div>
 				</div>
 			</div>
+			<div className="App-footer">
+				<div class="row text-center">
+					<p className="col-md-12 Sentence">Copyright©2018.</p>
+				</div>
+				<div class="row text-center">
+					<a className="col-md-12 Sentence" href="https://github.com/valianfilahli">Valian Fil Ahli</a>
+				</div>
+			</div>
+		</body>
 		);
 	}
 }
